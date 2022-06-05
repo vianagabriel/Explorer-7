@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --fs-h1: 4.0rem;
+  --fs-p: 2.0rem;
+
+  --bck-color-header: #8E9AAF;
+  --bck-color-header-h1: #CBC0D3;
+
+  --color-h1: #FFFFFF;
+
+  --ff-font-palanquin: 'Palanquin', sans-serif;
+  --ff-font-staatliches: 'Staatliches', cursive;
+
+  --hidden: none;
+  --show:default;
+}
+
+body {
+  background-color: #EFF1FF;
+
+}
+
+.page {
+
+  max-width: 45rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+
+  background-color: var(--bck-color-header);
+
+}
+
+
+
+header h1 {
+  font-size: var(--fs-h1);
+  text-align: center;
+  font-weight: 400;
+  line-height: 3.4rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.05rem;
+
+  font-family:var(--ff-font-staatliches);
+
+  width: 100%;
+  
+  margin: 3.0rem 0 3.6rem;
+  padding: 0.8rem;
+  color: var(--color-h1);
+  background-color: var(--bck-color-header-h1);
+}
+
+header img {
+  margin-top: 3.2rem;
+}
+
+header p{
+font-family: var(--ff-font-palanquin);
+text-align: center;
+font-size: var(--fs-p);
+
+color: var(--color-h1);
+
+margin: 0 auto;
+max-width: 35.5rem;
+
+padding: 1rem;
+
+font-weight: 400;
+line-height: 2.5rem;
+}
+
+main {
+  gap: 1.5rem;
+  padding: 3.2rem;
+
+}
+
+.product {
+  position: relative;
+  margin-top: 3.2rem;
+}
+
+.product h2 {
+  font-family: var(--ff-font-staatliches);
+  font-weight: 400;
+  font-size: 2.0rem;
+  line-height: 3.4rem;
+  text-align: center;
+
+  color: #4A4E69;
+  position: absolute;
+
+
+  background-color: #FEEAFA;
+  border-radius: 2.0rem;
+
+  width: 12.4rem;
+  right: 1.6rem;
+  top: 1.6rem;
+
+  animation: topdown 1500ms 350ms backwards;
+}
+
+.product img {
+  width: 100%;
+  object-fit: cover;
+  animation: downtop 1500ms 350ms backwards;
+}
+
+footer p {
+display: flex;
+gap: 10px;
+justify-content: center;
+
+color: #4A4E69;
+
+font-family: 'Open Sans';
+font-weight: 400;
+font-size: 1.4rem;
+line-height: 2.8rem;
+}
+
+footer a {
+color: #4A4E69;
+font-weight: bold;
+text-decoration: none;
+}
+
+@keyframes main{
+0% {
+  opacity: 0;
+  transform: translateX(-25px);
+}
+
+50% {
+  opacity: 0.6;
+  transform: translateX(0);
+}
+
+100% {
+  opacity: 1;
+  transform: translateX(0);
+}
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 950px) {
+  .page {
+    margin-right: 0;
+    max-width: 1350px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  main { 
+    display: grid;
+    grid-template-areas:
+    'A C E'
+    'B C F'
+    'B D F'
+    'footer footer footer';
+
+    padding-left: 9.8rem;
+    /* gap: 100px; */
+  }
+
+  main h2 {
+    display: var(--hidden);
+  }
+
+  header {
+    animation: main 1500ms 350ms backwards;
+    
+    justify-content: flex-start;
+    
+    height: 71.3rem;
+    max-width: 40rem;
+  }
+
+  header img {
+    padding-top: 3.5rem;
+  }
+
+  .product {
+    margin-top: 0;
+
+    transition: all 200ms;
+  }
+  
+  .product:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  .item1 { 
+    grid-area: A;
+  }
+
+  .item2 { 
+    grid-area: B;
+  }
+
+  .item3 { 
+    grid-area: C 
+  }
+
+  .item4 { 
+    grid-area: D;
+  }
+
+  .item5 { 
+    grid-area: E;
+  }
+
+  .item6 { 
+    grid-area: F; 
+  }
+
+  footer { 
+    grid-area: footer; 
+  }
+
+  .show-1200 {
+    display: block;
+
+    font-family: var(--ff-font-palanquin);
+    text-align: center;
+    font-size: var(--fs-p);
+
+    margin: 0 auto;
+    width: 35.5rem;
+    
+    color: var(--color-h1);
+    
+    font-weight: 400;
+    line-height: 2.5rem;
+  }
+
+
+
+}
+
+@media (min-width: 1550px) {
+  .page {
+    margin-right: 0;
+    max-width: 1900px;
+  }
+
+  header{
+    height: 92.9rem;
+  }
+
+  main {
+    gap: 2.0rem;
+  }
+}
